@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://dudsmif4hwjc2"]
+
+[ext_resource type="Script" uid="uid://8saoalxbmmts" path="res://scenes/UI/race_finished.gd" id="1_q02nh"]
+
+[node name="RaceFinished" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_q02nh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.5
+offset_top = -38.5
+offset_right = 84.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="WinnerLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Player Antonio Wins!!!"
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Time:"
+
+[node name="HighScore" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Highscore:"

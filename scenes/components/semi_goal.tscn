@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdqqb5hqb8kb2"]
+
+[ext_resource type="Script" uid="uid://dy0qqpm4xc0gx" path="res://scenes/components/semi_goal.gd" id="1_xc480"]
+
+[node name="SemiGoal" type="Area2D"]
+script = ExtResource("1_xc480")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://14wo8caulp3h"
+path="res://.godot/imported/realmenu, Pista 7, Grab (8).wav-d1357e75055cc179b68ee4e36d532b21.sample"
+
+[deps]
+
+source_file="res://assets/music/realmenu/Audio/realmenu, Pista 7, Grab (8).wav"
+dest_files=["res://.godot/imported/realmenu, Pista 7, Grab (8).wav-d1357e75055cc179b68ee4e36d532b21.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

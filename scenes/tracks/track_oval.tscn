@@ -1,0 +1,114 @@
+[gd_scene load_steps=14 format=3 uid="uid://uvptnhn4ioqw"]
+
+[ext_resource type="Script" uid="uid://5p6hsdf00h82" path="res://scenes/tracks/track_oval.gd" id="1_6ljfl"]
+[ext_resource type="Texture2D" uid="uid://bj1b71skkw7pj" path="res://assets/tracks/track-oval.png" id="1_uoatf"]
+[ext_resource type="PackedScene" uid="uid://do60skafw2lvx" path="res://scenes/tracks/wall.tscn" id="2_oqlke"]
+[ext_resource type="PackedScene" uid="uid://csfvpbvxltyt4" path="res://scenes/tracks/grass.tscn" id="3_6ljfl"]
+[ext_resource type="Texture2D" uid="uid://ddjiw0mmdrig6" path="res://assets/tracks/tower-oval.png" id="4_hlcum"]
+[ext_resource type="Texture2D" uid="uid://clr23hsqq8bls" path="res://assets/Sora32.png" id="5_8c5op"]
+[ext_resource type="PackedScene" uid="uid://chxw8tb8an7vo" path="res://scenes/components/goal_line.tscn" id="6_oqlke"]
+[ext_resource type="PackedScene" uid="uid://cdqqb5hqb8kb2" path="res://scenes/components/semi_goal.tscn" id="8_hlcum"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cck0x"]
+atlas = ExtResource("5_8c5op")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p3mj"]
+atlas = ExtResource("5_8c5op")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_712ll"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cck0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p3mj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6ljfl"]
+a = Vector2(247, -69)
+b = Vector2(-103, 33)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8c5op"]
+a = Vector2(-63, 94)
+b = Vector2(277, 93)
+
+[node name="TrackOval" type="Node2D"]
+script = ExtResource("1_6ljfl")
+total_laps = 5
+
+[node name="Track" type="Sprite2D" parent="."]
+texture = ExtResource("1_uoatf")
+centered = false
+
+[node name="Wall" parent="." instance=ExtResource("2_oqlke")]
+collision_layer = 8
+
+[node name="Inner" type="CollisionPolygon2D" parent="Wall"]
+polygon = PackedVector2Array(360, 579, 887, 582, 885, 315, 357, 315)
+
+[node name="OuterTop" type="CollisionPolygon2D" parent="Wall"]
+polygon = PackedVector2Array(3, -3, 1205.98, 2.03943, 1213.44, 905.613, 1.31046, 904.185, -2, -10, -47, -10, -44.1538, 952.66, -2, 971, 1261, 992, 1274.22, 845.768, 1385, -28, 0, -19)
+
+[node name="Grass" parent="." instance=ExtResource("3_6ljfl")]
+collision_layer = 4
+
+[node name="Inner" type="CollisionPolygon2D" parent="Grass"]
+polygon = PackedVector2Array(304, 676, 218, 573, 171, 470, 244, 312, 384, 204, 593, 168, 870, 218, 1033, 367, 1041, 539, 961, 632, 878, 695, 738, 735, 597, 747, 447, 731)
+
+[node name="Outer" type="CollisionPolygon2D" parent="Grass"]
+position = Vector2(-190, 195)
+polygon = PackedVector2Array(325, 697, 196, 695, 207, 373, 265, 488, 363, 603, 600, 706)
+
+[node name="Outer2" type="CollisionPolygon2D" parent="Grass"]
+position = Vector2(1401, 700)
+rotation = 3.14159
+polygon = PackedVector2Array(325, 697, 196, 695, 190, 336, 265, 488, 394, 606, 703, 703)
+
+[node name="Outer3" type="CollisionPolygon2D" parent="Grass"]
+position = Vector2(513, 1098)
+rotation = -1.5708
+polygon = PackedVector2Array(325, 697, 196, 695, 197, 276, 275, 485, 415, 646, 600, 706)
+
+[node name="Outer4" type="CollisionPolygon2D" parent="Grass"]
+position = Vector2(710, -188)
+rotation = 1.5708
+polygon = PackedVector2Array(325, 697, 196, 695, 199, 241, 279, 505, 433, 651, 600, 706)
+
+[node name="tower" type="Sprite2D" parent="."]
+z_index = 100
+texture = ExtResource("4_hlcum")
+centered = false
+
+[node name="StartPosition1" type="Marker2D" parent="."]
+position = Vector2(117, 621)
+rotation = -0.507891
+
+[node name="StartPosition2" type="Marker2D" parent="."]
+position = Vector2(167, 604)
+rotation = -0.507891
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 200
+position = Vector2(407, 549)
+sprite_frames = SubResource("SpriteFrames_712ll")
+autoplay = "default"
+frame_progress = 0.478929
+
+[node name="GoalLine" parent="." instance=ExtResource("6_oqlke")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalLine"]
+position = Vector2(104, 577)
+shape = SubResource("SegmentShape2D_6ljfl")
+
+[node name="SemiGoal" parent="." instance=ExtResource("8_hlcum")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SemiGoal"]
+position = Vector2(949, 360)
+shape = SubResource("SegmentShape2D_8c5op")

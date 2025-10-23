@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b71pdgabppyo"]
+
+[node name="OnTopObject" type="StaticBody2D"]

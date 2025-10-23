@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bqy6n8vl8ck2i"
+path="res://.godot/imported/PTM_NylonRhythm_107_Em_Guitar_01_guitar_107BPM_Eminor_ (5).wav-e8a7b93e12d2bf40e9a0979056cd655c.sample"
+
+[deps]
+
+source_file="res://assets/music/realmenu/Audio/PTM_NylonRhythm_107_Em_Guitar_01_guitar_107BPM_Eminor_ (5).wav"
+dest_files=["res://.godot/imported/PTM_NylonRhythm_107_Em_Guitar_01_guitar_107BPM_Eminor_ (5).wav-e8a7b93e12d2bf40e9a0979056cd655c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

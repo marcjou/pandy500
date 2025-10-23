@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ja2bd2w6r8el"
+path="res://.godot/imported/Drift_122_Em_VoxDistrort_voice_122BPM_Eminor_BANDLAB (6).wav-6bc2b86224198a0e04019859b288d684.sample"
+
+[deps]
+
+source_file="res://assets/music/realmenu/Audio/Drift_122_Em_VoxDistrort_voice_122BPM_Eminor_BANDLAB (6).wav"
+dest_files=["res://.godot/imported/Drift_122_Em_VoxDistrort_voice_122BPM_Eminor_BANDLAB (6).wav-6bc2b86224198a0e04019859b288d684.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

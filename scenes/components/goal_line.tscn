@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://chxw8tb8an7vo"]
+
+[ext_resource type="Script" uid="uid://bqu8yxh41xuhn" path="res://scenes/components/goal_line.gd" id="1_otdn8"]
+
+[node name="GoalLine" type="Area2D"]
+script = ExtResource("1_otdn8")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

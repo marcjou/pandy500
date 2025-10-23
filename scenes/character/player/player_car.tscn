@@ -1,0 +1,262 @@
+[gd_scene load_steps=34 format=3 uid="uid://cfmuud1omjycf"]
+
+[ext_resource type="Script" uid="uid://bm4yyd5ciqms2" path="res://scenes/character/player/player_car.gd" id="1_ir7uv"]
+[ext_resource type="Texture2D" uid="uid://cxwh6s3e86ed1" path="res://assets/cars/panda-car.png" id="2_omhkc"]
+[ext_resource type="Texture2D" uid="uid://bv0sw52inx020" path="res://assets/cars/car_sprites.png" id="3_7qq3v"]
+[ext_resource type="Script" uid="uid://wnh1gr55wr55" path="res://scripts/state_machine/node_state_machine.gd" id="3_s2c5k"]
+[ext_resource type="Script" uid="uid://djodqtnlrdl00" path="res://scenes/character/player/drive_state.gd" id="4_5hvhq"]
+[ext_resource type="Script" uid="uid://wdkvjtqfimgg" path="res://scenes/character/player/idle_state.gd" id="4_w3cpc"]
+[ext_resource type="Script" uid="uid://bnbw1rh0vhap2" path="res://scenes/character/player/player_label.gd" id="7_g31um"]
+
+[sub_resource type="Curve" id="Curve_g31um"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_neepp"]
+curve = SubResource("Curve_g31um")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g31um"]
+particle_flag_disable_z = true
+direction = Vector3(12, 0, 0)
+spread = 180.0
+initial_velocity_max = 49.48
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 6.5
+scale_curve = SubResource("CurveTexture_neepp")
+color = Color(0.838897, 0.838897, 0.838897, 1)
+hue_variation_min = -0.02
+hue_variation_max = 0.02
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75bae"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qq3v"]
+atlas = ExtResource("2_omhkc")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64bwn"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrlko"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1elb"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mnw5"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5ast"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxs3a"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(144, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g31um"]
+atlas = ExtResource("2_omhkc")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neepp"]
+atlas = ExtResource("2_omhkc")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3kr1"]
+atlas = ExtResource("2_omhkc")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dv4l"]
+atlas = ExtResource("2_omhkc")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ubug"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71xyt"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb3s2"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf15d"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oedkv"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd2oh"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(48, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um2md"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(96, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4djng"]
+atlas = ExtResource("3_7qq3v")
+region = Rect2(144, 144, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64bwn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75bae")
+}],
+"loop": true,
+"name": &"d_croco",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qq3v")
+}],
+"loop": true,
+"name": &"d_panda",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64bwn")
+}],
+"loop": true,
+"name": &"d_racoon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrlko")
+}],
+"loop": true,
+"name": &"d_turtle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1elb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mnw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5ast")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxs3a")
+}],
+"loop": true,
+"name": &"moving_croco",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g31um")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neepp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3kr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dv4l")
+}],
+"loop": true,
+"name": &"moving_panda",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ubug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71xyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb3s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf15d")
+}],
+"loop": true,
+"name": &"moving_racoon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oedkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd2oh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um2md")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4djng")
+}],
+"loop": true,
+"name": &"moving_turtle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g31um"]
+radius = 22.0
+height = 50.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_g31um"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PlayerCar" type="CharacterBody2D" groups=["vehicles"]]
+collision_mask = 29
+script = ExtResource("1_ir7uv")
+
+[node name="AccelParticle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_g31um")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_64bwn")
+animation = &"moving_turtle"
+frame = 3
+frame_progress = 0.152808
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_g31um")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("3_s2c5k")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player_car")]
+script = ExtResource("4_w3cpc")
+player_car = NodePath("../..")
+
+[node name="Drive" type="Node" parent="StateMachine" node_paths=PackedStringArray("player_car")]
+script = ExtResource("4_5hvhq")
+player_car = NodePath("../..")
+
+[node name="PlayerLabel" type="Label" parent="."]
+offset_left = -29.0
+offset_top = -49.0
+offset_right = 29.0
+offset_bottom = -26.0
+pivot_offset = Vector2(29, 11.5)
+text = "Player1"
+label_settings = SubResource("LabelSettings_g31um")
+script = ExtResource("7_g31um")
+
+[connection signal="race_finished" from="." to="." method="_on_race_finished"]

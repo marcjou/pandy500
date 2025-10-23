@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b3rbddh4jyp04"
+path="res://.godot/imported/PTM_Grind_107_Em_Bass_02_bass-guitar_107BPM_Eminor_BAN (4).wav-d13029b37e5473ea15d8ca4f067f8fc3.sample"
+
+[deps]
+
+source_file="res://assets/music/realmenu/Audio/PTM_Grind_107_Em_Bass_02_bass-guitar_107BPM_Eminor_BAN (4).wav"
+dest_files=["res://.godot/imported/PTM_Grind_107_Em_Bass_02_bass-guitar_107BPM_Eminor_BAN (4).wav-d13029b37e5473ea15d8ca4f067f8fc3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

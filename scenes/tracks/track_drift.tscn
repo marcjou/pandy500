@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://coh6wu1jowxpn"]
+
+[ext_resource type="Script" uid="uid://cewpa6kvrwqb1" path="res://scenes/tracks/track_drift.gd" id="1_qs6v7"]
+[ext_resource type="Texture2D" uid="uid://gbhjfwwsov7y" path="res://assets/tracks/Track Drift.png" id="2_qs6v7"]
+[ext_resource type="PackedScene" uid="uid://do60skafw2lvx" path="res://scenes/tracks/wall.tscn" id="3_wcb7r"]
+[ext_resource type="PackedScene" uid="uid://csfvpbvxltyt4" path="res://scenes/tracks/grass.tscn" id="4_05tsy"]
+[ext_resource type="PackedScene" uid="uid://chxw8tb8an7vo" path="res://scenes/components/goal_line.tscn" id="7_hp5uf"]
+[ext_resource type="PackedScene" uid="uid://cdqqb5hqb8kb2" path="res://scenes/components/semi_goal.tscn" id="8_vof3o"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_6ljfl"]
+a = Vector2(247, -69)
+b = Vector2(-103, 33)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8c5op"]
+a = Vector2(-63, 94)
+b = Vector2(277, 93)
+
+[node name="TrackDrift" type="Node2D"]
+script = ExtResource("1_qs6v7")
+total_laps = 5
+
+[node name="Track" type="Sprite2D" parent="."]
+texture = ExtResource("2_qs6v7")
+centered = false
+
+[node name="Wall" parent="." instance=ExtResource("3_wcb7r")]
+collision_layer = 8
+
+[node name="OuterTop" type="CollisionPolygon2D" parent="Wall"]
+polygon = PackedVector2Array(3, -3, 1205.98, 2.03943, 1213.44, 905.613, 1.31046, 904.185, -2, -10, -47, -10, -44.1538, 952.66, -2, 971, 1261, 992, 1274.22, 845.768, 1385, -28, 0, -19)
+
+[node name="Grass" parent="." instance=ExtResource("4_05tsy")]
+collision_layer = 4
+
+[node name="StartPosition1" type="Marker2D" parent="."]
+position = Vector2(117, 621)
+rotation = -0.507891
+
+[node name="StartPosition2" type="Marker2D" parent="."]
+position = Vector2(167, 604)
+rotation = -0.507891
+
+[node name="GoalLine" parent="." instance=ExtResource("7_hp5uf")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalLine"]
+position = Vector2(104, 577)
+shape = SubResource("SegmentShape2D_6ljfl")
+
+[node name="SemiGoal" parent="." instance=ExtResource("8_vof3o")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SemiGoal"]
+position = Vector2(949, 360)
+shape = SubResource("SegmentShape2D_8c5op")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bkchjsxfpu3hu"
+path="res://.godot/imported/PTM_OrganicTrapKitFill_107_Drums_02_drum_107BPM_BANDLA (1).wav-77f61b3405b33a9a1c14089ab2dea38b.sample"
+
+[deps]
+
+source_file="res://assets/music/realmenu/Audio/PTM_OrganicTrapKitFill_107_Drums_02_drum_107BPM_BANDLA (1).wav"
+dest_files=["res://.godot/imported/PTM_OrganicTrapKitFill_107_Drums_02_drum_107BPM_BANDLA (1).wav-77f61b3405b33a9a1c14089ab2dea38b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
