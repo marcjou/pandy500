@@ -41,7 +41,7 @@ b = Vector2(277, 93)
 
 [node name="TrackOval" type="Node2D"]
 script = ExtResource("1_6ljfl")
-total_laps = 5
+total_laps = 1
 
 [node name="Track" type="Sprite2D" parent="."]
 texture = ExtResource("1_uoatf")

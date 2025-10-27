@@ -8,16 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://cdqqb5hqb8kb2" path="res://scenes/components/semi_goal.tscn" id="8_vof3o"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_6ljfl"]
-a = Vector2(247, -69)
-b = Vector2(-103, 33)
+a = Vector2(92, 51)
+b = Vector2(94, -86)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8c5op"]
-a = Vector2(-63, 94)
-b = Vector2(277, 93)
+a = Vector2(140, 88)
+b = Vector2(290, 93)
 
 [node name="TrackDrift" type="Node2D"]
 script = ExtResource("1_qs6v7")
-total_laps = 5
+total_laps = 1
 
 [node name="Track" type="Sprite2D" parent="."]
 texture = ExtResource("2_qs6v7")
@@ -29,25 +29,62 @@ collision_layer = 8
 [node name="OuterTop" type="CollisionPolygon2D" parent="Wall"]
 polygon = PackedVector2Array(3, -3, 1205.98, 2.03943, 1213.44, 905.613, 1.31046, 904.185, -2, -10, -47, -10, -44.1538, 952.66, -2, 971, 1261, 992, 1274.22, 845.768, 1385, -28, 0, -19)
 
+[node name="Inner1" type="CollisionPolygon2D" parent="Wall"]
+position = Vector2(16, 65.2281)
+scale = Vector2(1, 2.45313)
+polygon = PackedVector2Array(176, 96.9261, 296, 53.7159, 180, 99.372, 155, 155.627, 175, 209.028, 273, 262.429, 170, 211.474, 148, 155.627)
+
+[node name="Inner2" type="CollisionPolygon2D" parent="Wall"]
+position = Vector2(2.87498, 258.536)
+scale = Vector2(2.49155, 1.85841)
+polygon = PackedVector2Array(413.447, 88.497, 405.42, 5.09236, 385.352, -31.4981, 409.032, -7.82191, 418.664, 31.459, 420.671, 68.5875, 413.848, 192.887, 405.42, 234.321, 400.603, 230.554, 404.617, 191.811)
+
+[node name="Inner3" type="CollisionPolygon2D" parent="Wall"]
+position = Vector2(-2894.07, 258.536)
+scale = Vector2(9.20884, 1.85841)
+polygon = PackedVector2Array(402.447, 99.2589, 400.384, 81.5018, 398.212, 64.2827, 388.764, 42.2209, 405.487, 47.6018, 405.379, 86.8827, 403.098, 288.668, 404.401, 132.621)
+
 [node name="Grass" parent="." instance=ExtResource("4_05tsy")]
 collision_layer = 4
 
+[node name="Inner1" type="CollisionPolygon2D" parent="Grass"]
+position = Vector2(63, 68)
+scale = Vector2(0.901082, 0.901083)
+polygon = PackedVector2Array(519.375, 728.013, 610.377, 719.135, 656.988, 603.718, 606, 680, 582, 701)
+
+[node name="Inner2" type="CollisionPolygon2D" parent="Grass"]
+position = Vector2(-127, -193)
+scale = Vector2(0.901082, 0.901083)
+polygon = PackedVector2Array(588.181, 809.027, 621.475, 797.929, 629.243, 696.94, 668.085, 635.902, 726.903, 589.291, 668.085, 591.511, 609.267, 610.377, 552.669, 663.646, 538.241, 719.135, 547.12, 773.514)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grass"]
+polygon = PackedVector2Array(4, 262, 49, 157, 119, 91, 197, 40, 290, 20, 503, 7, 13, 7)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Grass"]
+polygon = PackedVector2Array(980, 5, 1045, 15, 1093, 29, 1119, 47, 1165, 86, 1198, 132, 1201, 7)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Grass"]
+polygon = PackedVector2Array(663, 898, 750, 884, 797, 838, 816, 803, 830, 842, 859, 866, 902, 892, 963, 897, 1063, 897, 1125, 864, 1174, 816, 1200, 754, 1201, 906)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Grass"]
+polygon = PackedVector2Array(-9, 620, 12, 684, 39, 766, 84, 812, 134, 864, 231, 904, -1, 901)
+
 [node name="StartPosition1" type="Marker2D" parent="."]
-position = Vector2(117, 621)
-rotation = -0.507891
+position = Vector2(421, 76)
+rotation = 1.5708
 
 [node name="StartPosition2" type="Marker2D" parent="."]
-position = Vector2(167, 604)
-rotation = -0.507891
+position = Vector2(422, 138)
+rotation = 1.5708
 
 [node name="GoalLine" parent="." instance=ExtResource("7_hp5uf")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalLine"]
-position = Vector2(104, 577)
+position = Vector2(400, 120)
 shape = SubResource("SegmentShape2D_6ljfl")
 
 [node name="SemiGoal" parent="." instance=ExtResource("8_vof3o")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SemiGoal"]
-position = Vector2(949, 360)
+position = Vector2(709, 434)
 shape = SubResource("SegmentShape2D_8c5op")

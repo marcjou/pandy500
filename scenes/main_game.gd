@@ -5,6 +5,7 @@ var start_position1: Marker2D
 var start_position2: Marker2D
 var actual_lap: int
 var total_laps: int
+var track: String
 
 func _ready() -> void:
 	instantiate_main_menu()
@@ -25,9 +26,20 @@ func instantiate_finished_menu(winner):
 	var finished_menu = preload("res://scenes/UI/race_finished.tscn")
 	var finished_menu_instance = finished_menu.instantiate()
 	$UIController.add_child(finished_menu_instance)
-	finished_menu_instance.set_result_time($UIController/UI.formatted_time, winner)
+	
+	Global.track = track
+	Global.load()
+	var highscore = Global.high_score
+	if highscore > $UIController/UI.time_elapsed:
+		Global.high_score = $UIController/UI.time_elapsed
+		Global.format_highscore = $UIController/UI.formatted_time
+		Global.save()
+	
+	finished_menu_instance.set_result_time($UIController/UI.formatted_time, winner, Global.format_highscore)
+	
 	
 func start_level(level_path: String,car_type: String, car_type2: String = "none"):
+	track = level_path.split('_')[1]
 	var level_scene = load(level_path)
 	var level_instance = level_scene.instantiate()
 	$Track.add_child(level_instance)

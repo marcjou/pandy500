@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://csfvpbvxltyt4"]
 
-[ext_resource type="Script" uid="uid://dbpgan6ddseke" path="res://grass.gd" id="1_agadb"]
+[ext_resource type="Script" uid="uid://dbpgan6ddseke" path="res://scenes/tracks/grass.gd" id="1_agadb"]
 
 [node name="Grass" type="Area2D"]
 script = ExtResource("1_agadb")
