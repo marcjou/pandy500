@@ -85,3 +85,16 @@ func race_finished(winner: String):
 func reset_game(item_group):
 	for item in item_group.get_children():
 		item.queue_free()
+		
+func restart_game():
+	$UIController/UI.queue_free()
+	reset_game($Vehicles)
+	reset_game($Track)
+	reset_game($UIController)
+	$RaceMusic.playing = false
+	instantiate_main_menu()
+	
+func open_settings():
+	var settings_menu = preload("res://scenes/UI/settings_menu.tscn")
+	var settings_menu_instance = settings_menu.instantiate()
+	$UIController.add_child(settings_menu_instance)

@@ -35,6 +35,10 @@ folder_colors={
 "res://scripts/": "yellow"
 }
 
+[gui]
+
+theme/custom="uid://5jh21pjxegm4"
+
 [input]
 
 move_forward={

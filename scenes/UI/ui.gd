@@ -33,3 +33,7 @@ func modify_lap_label(lap_text: String, player_name: String):
 		$CanvasGroup/PanelContainer/MarginContainer/GridContainer/LapLabel.text = "Lap: " + lap_text
 	else:
 		another_lap.text = "Lap: " + lap_text
+
+
+func _on_button_pressed() -> void:
+	get_parent().get_parent().open_settings()

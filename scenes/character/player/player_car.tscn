@@ -231,7 +231,6 @@ process_material = SubResource("ParticleProcessMaterial_g31um")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_64bwn")
 animation = &"moving_turtle"
-frame_progress = 0.33908
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_g31um")

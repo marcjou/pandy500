@@ -6,12 +6,18 @@ var mode_selected : String
 var player: int = 1
 
 func _ready() -> void:
-	$CanvasLayer/PanelContainer/GridContainer/SelectMode.get_popup().id_pressed.connect(_on_select_mode_pressed)
-	$CanvasLayer/PanelContainer/GridContainer/SelectTrack.get_popup().id_pressed.connect(_on_select_track_pressed)
-	$CanvasLayer/PanelContainer/GridContainer/SelectCar.get_popup().id_pressed.connect(_on_select_car_pressed)
-	$CanvasLayer/PanelContainer/GridContainer/SelectTrack.hide()
-	$CanvasLayer/PanelContainer/GridContainer/SelectCar.hide()
-	
+	$CanvasLayer/SelectMode.get_popup().id_pressed.connect(_on_select_mode_pressed)
+	$CanvasLayer/SelectTrack.get_popup().id_pressed.connect(_on_select_track_pressed)
+	$CanvasLayer/SelectCar.pressed.connect(_on_select_car_pressed)
+	await $"CanvasLayer/Developed by/DevLogo".animation_finished
+	await get_tree().create_timer(1).timeout
+	$"CanvasLayer/Developed by".hide()
+	$CanvasLayer/Sprite2D.show()
+	$MainMenuMusic.play()
+	await get_tree().create_timer(2).timeout
+	$CanvasLayer/Title.show()
+	$CanvasLayer/SelectMode.show()
+	$CanvasLayer/Sprite2D.hide()
 func _on_select_mode_pressed(id: int):
 	match id:
 		0: chosen_mode("sp")
@@ -21,9 +27,10 @@ func chosen_mode(mode: String):
 	match mode:
 		"sp": mode_selected = "sp"
 		"2p": mode_selected = "2p"
-	$CanvasLayer/PanelContainer/GridContainer/SelectMode.hide()
-	$CanvasLayer/PanelContainer/GridContainer/SelectCar.show()
+	$CanvasLayer/SelectMode.hide()
+	$CanvasLayer/SelectCar.show()
 	
+# TODO investigar como modificar un menu button
 func _on_select_track_pressed(id: int):
 	match id:
 		0: 
@@ -37,24 +44,22 @@ func _on_select_track_pressed(id: int):
 			else:
 				$"../..".start_level("res://scenes/tracks/track_drift.tscn", car_type)
 		
-func _on_select_car_pressed(id: int) -> void:
-	match id:
-		0: chosen_car("panda")
-		1: chosen_car("racoon")
-		2: chosen_car("croco")
-		3: chosen_car("turtle")
+func _on_select_car_pressed() -> void:
+	$CanvasLayer/Cars.show()
 		
 func chosen_car(car: String):
 	if mode_selected == "2p":
 		if player == 2:
 			car_type2 = car
-			$CanvasLayer/PanelContainer/GridContainer/SelectCar.hide()
-			$CanvasLayer/PanelContainer/GridContainer/SelectTrack.show()
+			$CanvasLayer/SelectCar.hide()
+			$CanvasLayer/Cars.hide()
+			$CanvasLayer/SelectTrack.show()
 			player = 1
 		else:
 			car_type = car
 			player = 2
 	else:
 		car_type = car
-		$CanvasLayer/PanelContainer/GridContainer/SelectCar.hide()
-		$CanvasLayer/PanelContainer/GridContainer/SelectTrack.show()
+		$CanvasLayer/SelectCar.hide()
+		$CanvasLayer/Cars.hide()
+		$CanvasLayer/SelectTrack.show()
