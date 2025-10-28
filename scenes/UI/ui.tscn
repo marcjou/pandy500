@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bae1fe7hytcfm"]
+[gd_scene load_steps=3 format=3 uid="uid://bae1fe7hytcfm"]
 
 [ext_resource type="Script" uid="uid://xgadv4ok5bf5" path="res://scenes/UI/ui.gd" id="1_llgrp"]
+[ext_resource type="Texture2D" uid="uid://c6tjsp6bdjqhu" path="res://assets/icons/Gear-icon.png" id="2_yb1mt"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -60,10 +61,12 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -8.0
+offset_left = -60.0
+offset_top = -60.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Settings"
+icon = ExtResource("2_yb1mt")
+flat = true
+expand_icon = true
 
 [connection signal="pressed" from="CanvasGroup/Button" to="." method="_on_button_pressed"]
