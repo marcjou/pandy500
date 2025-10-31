@@ -18,6 +18,7 @@ func _ready() -> void:
 	$CanvasLayer/Title.show()
 	$CanvasLayer/SelectMode.show()
 	$CanvasLayer/Sprite2D.hide()
+	$CanvasLayer/SelectMode.grab_focus.call_deferred()
 func _on_select_mode_pressed(id: int):
 	match id:
 		0: chosen_mode("sp")
@@ -29,6 +30,7 @@ func chosen_mode(mode: String):
 		"2p": mode_selected = "2p"
 	$CanvasLayer/SelectMode.hide()
 	$CanvasLayer/SelectCar.show()
+	$CanvasLayer/SelectCar.grab_focus.call_deferred()
 	
 # TODO investigar como modificar un menu button
 func _on_select_track_pressed(id: int):
@@ -46,20 +48,20 @@ func _on_select_track_pressed(id: int):
 		
 func _on_select_car_pressed() -> void:
 	$CanvasLayer/Cars.show()
+	$CanvasLayer/Cars/PandaButton.grab_focus.call_deferred()
 		
 func chosen_car(car: String):
 	if mode_selected == "2p":
 		if player == 2:
 			car_type2 = car
-			$CanvasLayer/SelectCar.hide()
-			$CanvasLayer/Cars.hide()
-			$CanvasLayer/SelectTrack.show()
+			
 			player = 1
 		else:
 			car_type = car
 			player = 2
 	else:
 		car_type = car
-		$CanvasLayer/SelectCar.hide()
-		$CanvasLayer/Cars.hide()
-		$CanvasLayer/SelectTrack.show()
+	$CanvasLayer/SelectCar.hide()
+	$CanvasLayer/Cars.hide()
+	$CanvasLayer/SelectTrack.show()
+	$CanvasLayer/SelectTrack.grab_focus.call_deferred()

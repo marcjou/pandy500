@@ -186,6 +186,7 @@ autoplay = true
 
 [node name="SelectMode" type="MenuButton" parent="CanvasLayer"]
 visible = false
+focus_mode = 2
 text = "Select Game Mode"
 switch_on_hover = true
 item_count = 2
@@ -218,6 +219,7 @@ metadata/_custom_type_script = "uid://02dxju6b4cfp"
 
 [node name="SelectTrack" type="MenuButton" parent="CanvasLayer"]
 visible = false
+focus_mode = 2
 text = "Select Track
 "
 switch_on_hover = true

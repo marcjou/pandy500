@@ -27,6 +27,9 @@ Button/styles/hover = SubResource("StyleBoxFlat_yk8t3")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_son7u")
 
 [sub_resource type="FontFile" id="FontFile_lwg20"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/34/0/ascent = 0.0
 cache/0/34/0/descent = 0.0
 cache/0/34/0/underline_position = 0.0
