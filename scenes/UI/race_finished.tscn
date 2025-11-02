@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dudsmif4hwjc2"]
+[gd_scene load_steps=3 format=3 uid="uid://dudsmif4hwjc2"]
 
 [ext_resource type="Script" uid="uid://8saoalxbmmts" path="res://scenes/UI/race_finished.gd" id="1_q02nh"]
+[ext_resource type="Theme" uid="uid://0i8u5g2wh2km" path="res://presets/win_theme.tres" id="2_ngsv6"]
 
 [node name="RaceFinished" type="Control"]
 layout_mode = 3
@@ -10,6 +11,11 @@ offset_bottom = 40.0
 script = ExtResource("1_q02nh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1201.0
+offset_bottom = 901.0
+color = Color(0, 0.355833, 0.61, 1)
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 8
@@ -23,6 +29,7 @@ offset_right = 84.5
 offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_ngsv6")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2
@@ -32,12 +39,33 @@ layout_mode = 2
 
 [node name="WinnerLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
+theme = ExtResource("2_ngsv6")
 text = "Player Antonio Wins!!!"
 
 [node name="TimeLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
+theme = ExtResource("2_ngsv6")
 text = "Time:"
 
 [node name="HighScore" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
+theme = ExtResource("2_ngsv6")
 text = "Highscore:"
+
+[node name="RestartButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -187.0
+offset_top = -262.0
+offset_right = 197.0
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_ngsv6")
+text = "Restart Game"
+flat = true
+
+[connection signal="pressed" from="CanvasLayer/RestartButton" to="." method="_on_restart_button_pressed"]

@@ -10,4 +10,8 @@ func set_result_time(result_time: String, winner: String, highscore: String) -> 
 	highscore = highscore
 	$CanvasLayer/PanelContainer/MarginContainer/GridContainer/TimeLabel.text = "Time: " + result_time
 	$CanvasLayer/PanelContainer/MarginContainer/GridContainer/WinnerLabel.text = "Winner is " + winner
-	$CanvasLayer/PanelContainer/MarginContainer/GridContainer/HighScore.text = "Highscore is " + highscore
+	$CanvasLayer/PanelContainer/MarginContainer/GridContainer/HighScore.text = "Highscore: " + highscore
+
+
+func _on_restart_button_pressed() -> void:
+	get_parent().get_parent().restart_game()

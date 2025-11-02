@@ -87,7 +87,10 @@ func reset_game(item_group):
 		item.queue_free()
 		
 func restart_game():
-	$UIController/UI.queue_free()
+	if $UIController/UI:
+		$UIController/UI.queue_free()
+	elif $UIController/RaceFinished:
+		$UIController/RaceFinished.queue_free()
 	reset_game($Vehicles)
 	reset_game($Track)
 	reset_game($UIController)
