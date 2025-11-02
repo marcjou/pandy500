@@ -49,6 +49,8 @@ func _on_select_track_pressed(id: int):
 func _on_select_car_pressed() -> void:
 	$CanvasLayer/Cars.show()
 	$CanvasLayer/Cars/PandaButton.grab_focus.call_deferred()
+	$CanvasLayer/Player.text = "Player 1"
+	$CanvasLayer/Player.show()
 		
 func chosen_car(car: String):
 	if mode_selected == "2p":
@@ -56,12 +58,19 @@ func chosen_car(car: String):
 			car_type2 = car
 			
 			player = 1
+			$CanvasLayer/SelectCar.hide()
+			$CanvasLayer/Cars.hide()
+			$CanvasLayer/SelectTrack.show()
+			$CanvasLayer/Player.hide()
+			$CanvasLayer/SelectTrack.grab_focus.call_deferred()
 		else:
 			car_type = car
 			player = 2
+			$CanvasLayer/Player.text = "Player 2"
 	else:
 		car_type = car
-	$CanvasLayer/SelectCar.hide()
-	$CanvasLayer/Cars.hide()
-	$CanvasLayer/SelectTrack.show()
-	$CanvasLayer/SelectTrack.grab_focus.call_deferred()
+		$CanvasLayer/SelectCar.hide()
+		$CanvasLayer/Cars.hide()
+		$CanvasLayer/SelectTrack.show()
+		$CanvasLayer/SelectTrack.grab_focus.call_deferred()
+	

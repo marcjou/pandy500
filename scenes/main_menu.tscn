@@ -152,6 +152,20 @@ grow_horizontal = 2
 theme = SubResource("Theme_oa1go")
 text = "Pandy 500"
 
+[node name="Player" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -144.5
+offset_top = -56.0
+offset_right = 144.5
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_oa1go")
+theme_override_font_sizes/font_size = 40
+
 [node name="Sprite2D" type="TextureRect" parent="CanvasLayer"]
 visible = false
 offset_left = -1.99988

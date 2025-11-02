@@ -13,6 +13,8 @@ var drift_flag = false
 var old_direction : Vector2
 var angle_diff = 0
 var current_angle = 0.0
+var drift_sound: bool = false
+var drift_sound2: bool = false
 
 var stats: Dictionary = {} 
 
@@ -25,7 +27,6 @@ func _on_physics_process(_delta : float) -> void:
 	if player_car.player_name == "Player 1":
 		var motion_vector = GameInputEvents.movement_input()
 		var speed_mod = stats["acceleration"] * stats["acceleration_power"]
-		
 		if GameInputEvents.accelerating != GameInputEvents.decelerating:
 			actual_speed = clamp(actual_speed + speed_mod * GameInputEvents.dir_acceleration, 
 			player_car.speed * -1, player_car.speed)
@@ -34,6 +35,7 @@ func _on_physics_process(_delta : float) -> void:
 			else:
 				$"../../AccelParticle".emitting = false
 			if !GameInputEvents.drifting:
+				drift_sound = false
 				if drift_flag:
 					#actual_speed = actual_speed/2
 					#if current_angle == 0.0:
@@ -53,7 +55,7 @@ func _on_physics_process(_delta : float) -> void:
 		
 		if GameInputEvents.rotating != 0:
 			var turn_modifier = GameInputEvents.rotating*GameInputEvents.dir_acceleration*stats["rotation_rad"]
-			if GameInputEvents.drifting:			
+			if GameInputEvents.drifting:
 				if not drift_flag:
 					old_direction = player_car.direction
 					drift_flag = true
@@ -77,6 +79,9 @@ func _on_physics_process(_delta : float) -> void:
 					car_front_direction = player_car.direction
 		
 		if GameInputEvents.drifting:
+			if !drift_sound:
+				$"../../DriftSound".play()
+				drift_sound = true
 			var drift = stats["acceleration"] * (stats["drift_power"]+stats["acceleration_power"]) +_delta
 			var direction = sign(actual_speed)
 			var min_speed = start_speed if direction>0 else player_car.speed * -1
@@ -95,6 +100,7 @@ func _on_physics_process(_delta : float) -> void:
 				$"../../AccelParticle".emitting = false
 			if !GameInputEvents.drifting2:
 				if drift_flag:
+					drift_sound2 = false
 					#actual_speed = actual_speed/2
 					#if current_angle == 0.0:
 						#current_angle = player_car.direction.angle()
@@ -113,7 +119,7 @@ func _on_physics_process(_delta : float) -> void:
 		
 		if GameInputEvents.rotating2 != 0:
 			var turn_modifier = GameInputEvents.rotating2*GameInputEvents.dir_acceleration2*stats["rotation_rad"]
-			if GameInputEvents.drifting2:			
+			if GameInputEvents.drifting2:
 				if not drift_flag:
 					old_direction = player_car.direction
 					drift_flag = true
@@ -137,6 +143,9 @@ func _on_physics_process(_delta : float) -> void:
 					car_front_direction = player_car.direction
 		
 		if GameInputEvents.drifting2:
+			if !drift_sound2:
+				$"../../DriftSound2".play()
+				drift_sound2 = true
 			var drift = stats["acceleration"] * (stats["drift_power"]+stats["acceleration_power"]) +_delta
 			var direction = sign(actual_speed)
 			var min_speed = start_speed if direction>0 else player_car.speed * -1
@@ -173,6 +182,7 @@ func _on_next_transitions() -> void:
 		transition.emit("Idle")
 
 func _on_enter() -> void:
+	$"../../EngineSound".play()
 	stats = player_car.get_stats()
 	actual_speed = start_speed
 	car_front_direction = player_car.direction

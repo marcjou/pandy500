@@ -17,7 +17,6 @@ b = Vector2(290, 93)
 
 [node name="TrackDrift" type="Node2D"]
 script = ExtResource("1_qs6v7")
-total_laps = 1
 
 [node name="Track" type="Sprite2D" parent="."]
 texture = ExtResource("2_qs6v7")

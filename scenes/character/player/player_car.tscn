@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cfmuud1omjycf"]
+[gd_scene load_steps=36 format=3 uid="uid://cfmuud1omjycf"]
 
 [ext_resource type="Script" uid="uid://bm4yyd5ciqms2" path="res://scenes/character/player/player_car.gd" id="1_ir7uv"]
 [ext_resource type="Texture2D" uid="uid://cxwh6s3e86ed1" path="res://assets/cars/panda-car.png" id="2_omhkc"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://djodqtnlrdl00" path="res://scenes/character/player/drive_state.gd" id="4_5hvhq"]
 [ext_resource type="Script" uid="uid://wdkvjtqfimgg" path="res://scenes/character/player/idle_state.gd" id="4_w3cpc"]
 [ext_resource type="Script" uid="uid://bnbw1rh0vhap2" path="res://scenes/character/player/player_label.gd" id="7_g31um"]
+[ext_resource type="AudioStream" uid="uid://ce1xp888repei" path="res://assets/music/rally-car-idle-loop-17-84405.mp3" id="8_neepp"]
+[ext_resource type="AudioStream" uid="uid://3l6gwxd8067j" path="res://assets/music/fast-car-braking-sound-effect-3-11000.mp3" id="9_k3kr1"]
 
 [sub_resource type="Curve" id="Curve_g31um"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -256,5 +258,17 @@ pivot_offset = Vector2(29, 11.5)
 text = "Player1"
 label_settings = SubResource("LabelSettings_g31um")
 script = ExtResource("7_g31um")
+
+[node name="EngineSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_neepp")
+volume_db = -10.0
+
+[node name="DriftSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_k3kr1")
+volume_db = -10.0
+
+[node name="DriftSound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_k3kr1")
+volume_db = -10.0
 
 [connection signal="race_finished" from="." to="." method="_on_race_finished"]
